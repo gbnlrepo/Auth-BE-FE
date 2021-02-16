@@ -36,11 +36,9 @@ const NavBar = (props) => {
       description,
       token
     };
-    console.log(' i got here 1111 ')
     // dispatch the action that create and register a user.
     dispatch(addBook(requestPayload))
     dispatch(getBooks())
-    console.log(' i got here 000 ')
   };
 
   const onLogoutUser = async () => {

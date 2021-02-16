@@ -36,7 +36,6 @@ export const getBooks = createAsyncThunk(
 export const addBook = createAsyncThunk(
   'book/addBook',
   async (payload) => {
-    console.log('payload ', payload)
     const { title, description, token } = payload
     const res = await axios({
       url: `${baseUrl}/book/create`,
@@ -46,7 +45,6 @@ export const addBook = createAsyncThunk(
         Authorization: token
       }
     });
-    console.log('>>>> ', res.data);
     const { data } = res.data;
     return data;
   }

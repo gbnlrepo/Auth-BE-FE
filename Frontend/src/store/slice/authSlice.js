@@ -32,7 +32,6 @@ export const loginUser = createAsyncThunk(
         data: payload
       });
       const { data } = res;
-      console.log('data', data.data.token)
       localStorage.setItem('token', data.data.token)
       return data
     } catch (error) {
@@ -70,7 +69,6 @@ export const resetPassword = createAsyncThunk(
         data: payload
       });
       const { data } = res;
-      console.log('data', data)
       return data;
     } catch (error) {
       const { data } = error.response;
@@ -121,7 +119,6 @@ const userSlice = createSlice({
       state.isLoading = true
     },
     [registerUser.fulfilled] : (state, action) => {
-      console.log('action.payload', action.payload)
       if (action.payload.data) {
         state.isLoading = false;
         state.user = action.payload.data;
@@ -135,7 +132,6 @@ const userSlice = createSlice({
       }
     },
     [registerUser.rejected] : (state, action) => {
-      console.log('action.payload ', action.payload)
       state.error = action.payload.message;
       state.isSuccessful = false;
     },
@@ -193,7 +189,6 @@ const userSlice = createSlice({
       }
     },
     [setCurrentUser.fulfilled]: (state, action) => {
-      // console.log(' >>>>> ', action.payload)
       const token = action.payload;
       if (token !== null) {
         state.isAuthenticated = true

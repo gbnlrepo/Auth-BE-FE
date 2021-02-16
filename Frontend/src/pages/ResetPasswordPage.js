@@ -33,7 +33,6 @@ const ResetPasswordPage = props => {
   };
 
   if (isChangePassword) {
-    console.log('see me ooo ')
     return <Redirect to="/login" />
   }
 
